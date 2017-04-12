@@ -1,5 +1,7 @@
 'use strict';
 
+const makeMove = require('./makeMove');
+
 const firstEncounter = require('./firstEncounter');
 const isGameFull = require('./isGameFull');
 const joinGame = require('./joinGame');
@@ -18,8 +20,8 @@ exports.before = {
   find: [],
   get: [],
   create: [createGame()],
-  update: [joinGame()],
-  patch: [joinGame()],
+  update: [joinGame(), makeMove()],
+  patch: [joinGame(), makeMove()],
   remove: []
 };
 
