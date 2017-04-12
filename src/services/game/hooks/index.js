@@ -1,11 +1,8 @@
 'use strict';
 
 const firstEncounter = require('./firstEncounter');
-
 const isGameFull = require('./isGameFull');
-
 const joinGame = require('./joinGame');
-
 const createGame = require('./createGame');
 
 const globalHooks = require('../../../hooks');
