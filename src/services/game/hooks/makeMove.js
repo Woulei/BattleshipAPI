@@ -6,6 +6,7 @@
 // For more information on hooks see: http://docs.feathersjs.com/hooks/readme.html
 
 const errors = require('feathers-errors');
+const validFire = require('../validFire');
 
 module.exports = function(options) {
   return function(hook) {
@@ -16,10 +17,27 @@ module.exports = function(options) {
           return;
         }
 
-        if ( game.playerIds.indexOf(hook.params.user._id) === -1 ){
-          console.log("Player isn't in the game");
+        const userId = hook.params.user._id.toString();
+        const players = game.playerIds.map((el) => { return el.toString() });
+        const playerIndex = players.indexOf(userId);
+
+        if ( playerIndex === -1 ){
           throw new errors.Forbidden('You are not in this game!');
+          return;
         }
+
+        const cellIndex = hook.data.cell - 1
+        const boardIndex = playerIndex === 0 ? 1 : 0
+        const board = game.board
+
+        if (!validFire(board, cellIndex, boardIndex)) {
+          console.log('Player tries to make an unvalid move... IDIOT');
+          throw new errors.NotAcceptable('Those coordinates are not available.');
+          return;
+        }
+        console.log("Yeahh.. You are allowed to make a move!");
+
+        //do move
 
       })
   }
