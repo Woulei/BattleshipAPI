@@ -35,10 +35,11 @@ module.exports = function(options) {
           throw new errors.NotAcceptable('Those coordinates are not available.');
           return;
         }
-        console.log("Yeahh.. You are allowed to make a move!");
 
         //do move
-
+        game.board[boardIndex][cellIndex]++
+        hook.data.board = game.board
+        console.log("Board updated");
       })
   }
 }
