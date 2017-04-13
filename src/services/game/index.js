@@ -26,4 +26,5 @@ module.exports = function() {
 
   // Set up our after hooks
   gameService.after(hooks.after);
+
 };

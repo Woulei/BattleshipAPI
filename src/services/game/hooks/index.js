@@ -1,5 +1,7 @@
 'use strict';
 
+const reloadPlayers = require('./reloadPlayers');
+
 const makeMove = require('./makeMove');
 
 const firstEncounter = require('./firstEncounter');
@@ -33,7 +35,7 @@ exports.after = {
   find: [],
   get: [],
   create: [],
-  update: [],
-  patch: [],
+  update: [reloadPlayers()],
+  patch: [reloadPlayers()],
   remove: []
 };
