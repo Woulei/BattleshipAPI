@@ -26,4 +26,11 @@ module.exports = function() {
 
   // Set up our after hooks
   messageService.after(hooks.after);
+
+  messageService.filter('created', function(data, connection) {
+    console.log(connection.user.email);
+
+
+    return data;
+  });
 };
