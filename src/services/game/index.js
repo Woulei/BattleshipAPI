@@ -3,6 +3,7 @@
 const service = require('feathers-mongoose');
 const game = require('./game-model');
 const hooks = require('./hooks');
+const cleanBoard = require('./cleanBoard');
 
 module.exports = function() {
   const app = this;
@@ -27,4 +28,8 @@ module.exports = function() {
   // Set up our after hooks
   gameService.after(hooks.after);
 
+  gameService.filter({
+    updated(data, connection, hook) { return cleanBoard(data, connection, hook) },
+    patched(data, connection, hook) { return cleanBoard(data, connection, hook) }
+  });
 };
