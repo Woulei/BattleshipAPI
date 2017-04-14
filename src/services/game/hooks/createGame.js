@@ -15,6 +15,7 @@ module.exports = function(options) {
 
     hook.data.title = `${currentUser.name}'s Game`;
     hook.data.playerIds = [hook.params.user._id];
+    hook.data.turn = hook.params.user._id.toString();
     hook.data.board = [
       [
         1,1,1,1,1,1,1,1,1,1,

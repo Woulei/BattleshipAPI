@@ -30,6 +30,15 @@ module.exports = function(options) {
         const boardIndex = playerIndex === 0 ? 1 : 0
         const board = game.board
 
+        //check if it is the players turn
+        const turnId = game.turn;
+        console.log("TurnID:", turnId);
+        console.log("UserID:", userId);
+        if (userId !== turnId) {
+          throw new errors.Forbidden('It is not your turn!');
+        }
+
+        //check if the cell has already been shot
         if (!validFire(board, cellIndex, boardIndex)) {
           console.log('Player tries to make an unvalid move... IDIOT');
           throw new errors.NotAcceptable('Those coordinates are not available.');
@@ -40,6 +49,13 @@ module.exports = function(options) {
         game.board[boardIndex][cellIndex]++
         hook.data.board = game.board
         console.log("Board updated");
+
+        //update turn data
+        if (playerIndex === 0) {
+          hook.data.turn = players[1]
+        } else {
+          hook.data.turn = players[0]
+        }
       })
   }
 }

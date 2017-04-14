@@ -1,9 +1,7 @@
 'use strict';
 
 const reloadPlayers = require('./reloadPlayers');
-
 const makeMove = require('./makeMove');
-
 const firstEncounter = require('./firstEncounter');
 const isGameFull = require('./isGameFull');
 const joinGame = require('./joinGame');
