@@ -13,16 +13,11 @@ module.exports = function(options) {
   options = Object.assign({}, defaults, options);
 
   return function(hook) {
-    const { result } = hook;
+    if (hook.data.makeMove) {
+      const { result } = hook;
 
-    const winner = gameWon(hook)
-    if (winner > -1) result.winner = winner
-
-    delete result.playerIds
-    result.players.map((player) => {
-      delete player.email
-      return player
-    })
-
+      const winner = gameWon(hook)
+      if (winner > -1) result.winner = winner
+    }
   }
 };
