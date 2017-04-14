@@ -12,7 +12,7 @@ const gameSchema = new Schema({
   title: { type: String, required: true },
   playerIds: [Schema.Types.ObjectId],
   board: { type: Array, required: true },
-  winner: [Schema.Types.ObjectId],
+  winner: { type: Number, 'default': -1 },
   turn: { type: String, required: true},
   createdAt: { type: Date, 'default': Date.now },
   updatedAt: { type: Date, 'default': Date.now }

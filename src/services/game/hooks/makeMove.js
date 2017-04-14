@@ -7,6 +7,7 @@
 
 const errors = require('feathers-errors');
 const validFire = require('../validFire');
+const gameWon = require('../gameWon');
 
 module.exports = function(options) {
   return function(hook) {
@@ -56,6 +57,10 @@ module.exports = function(options) {
         } else {
           hook.data.turn = players[0]
         }
+
+        //check for winner
+        const winner = gameWon(hook)
+        if (winner > -1) hook.data.winner = winner
       })
   }
 }
