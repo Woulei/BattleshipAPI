@@ -33,7 +33,7 @@ exports.after = {
   find: [],
   get: [],
   create: [],
-  update: [reloadPlayers()],
-  patch: [reloadPlayers()],
+  update: [],
+  patch: [],
   remove: []
 };
