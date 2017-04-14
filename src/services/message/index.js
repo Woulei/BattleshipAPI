@@ -28,8 +28,9 @@ module.exports = function() {
   messageService.after(hooks.after);
 
   messageService.filter('created', function(data, connection) {
-    console.log(connection.user.email);
-
+    if(!connection.user) {
+      return false;
+    }
 
     return data;
   });
