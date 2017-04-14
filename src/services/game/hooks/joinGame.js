@@ -21,11 +21,12 @@ module.exports = function(options) {
         // See Feathers code for available error types
         // https://github.com/feathersjs/feathers-errors/blob/master/src/index.js
 
-        if (isGameFull(game)) {
-          throw new errors.Unprocessable('Sorry, this game is full!');
+        const action = hook.data.joinGame === 'true' ? '$addToSet' : '$pull';
+        if (action === '$addToSet'){
+          if (isGameFull(game)) {
+            throw new errors.Unprocessable('Sorry, this game is full!');
+          }
         }
-
-        const action = hook.data.joinGame ? '$addToSet' : '$pull';
         let data = {};
         data[action] = { playerIds: hook.params.user._id };
         hook.data = data;
