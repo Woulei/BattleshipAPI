@@ -1,57 +1,24 @@
 # BattleShip
 
-> What&#39;s in a name?
-
 ## About
+This API uses [Feathers](http://feathersjs.com). An open source web framework for building modern real-time applications.
+We build it during the Codaisseur Academy. It is used for the [BattleShip App](https://github.com/Woulei/BattleshipUI) that we build during class.
 
-This project uses [Feathers](http://feathersjs.com). An open source web framework for building modern real-time applications.
+__NOTE:__ This was build during the Academy. If we would build it again, we might do it differently. Also the finishing touches were skipped due to the small amount of time available. The Battleship API and APP were build within less then 5 days by a team of 3 people. It might contain some minor bugs ;-)
 
-## Getting Started
+## Services
+The API has a few services. 
 
-Getting up and running is as easy as 1, 2, 3.
+ 
+## Running Locally
+  1. Make sure you have [NodeJS](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed.
+  2. Install your dependencies
+    `cd path/to/ShutUp; npm install`
+  3. Start the app
+    `npm start`
 
-1. Make sure you have [NodeJS](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed.
-2. Install your dependencies
-
-    ```
-    cd path/to/BattleShip; npm install
-    ```
-
-3. Start your app
-
-    ```
-    npm start
-    ```
-
-## Testing
-
-Simply run `npm test` and all your tests in the `test/` directory will be run.
-
-## Scaffolding
-
-Feathers has a powerful command line interface. Here are a few things it can do:
-
-```
-$ npm install -g feathers-cli             # Install Feathers CLI
-
-$ feathers generate service               # Generate a new Service
-$ feathers generate hook                  # Generate a new Hook
-$ feathers generate model                 # Generate a new Model
-$ feathers help                           # Show all commands
-```
-
-## Help
-
-For more information on all the things you can do with Feathers visit [docs.feathersjs.com](http://docs.feathersjs.com).
-
-## Changelog
-
-__0.1.0__
-
-- Initial release
-
-## License
-
-Copyright (c) 2016
-
-Licensed under the [MIT license](LICENSE).
+__note:__ You should also have a MongoDB server running.
+  
+## Related Documentation
+  * [Codaisseur Reader](https://reader.codaisseur.com/courses/advanced-bootcamp-f801cb01-3c56-4975-9610-3c22e8746b97)
+  * [Feathers](http://feathersjs.com)
