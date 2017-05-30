@@ -12,9 +12,7 @@ module.exports = function(options) {
   return function(hook) {
     return hook.app.service('games').get(hook.id)
       .then((game) => {
-        console.log(hook.data);
         if (hook.data.joinGame === undefined) {
-          console.log("Client doesn't want to join the game");
           return;
         }
 
@@ -30,7 +28,6 @@ module.exports = function(options) {
         let data = {};
         data[action] = { playerIds: hook.params.user._id };
         hook.data = data;
-        console.log('Player added to the game');
       })
   }
 }
